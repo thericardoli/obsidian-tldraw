@@ -1,0 +1,121 @@
+/* Base fonts/tldraw styles are imported from TS to ensure bundling. */
+
+.obsidian-branching-chat-workflow {
+	font-family: var(--font-interface), Inter, sans-serif;
+	overscroll-behavior: none;
+}
+
+/* Fix: Obsidian's global styles (e.g., button:not(.clickable-icon)) can override tldraw UI.
+   Scope overrides to our container to restore tldraw's intended look & feel. */
+.obsidian-branching-chat-workflow .tlui-button {
+	background-color: transparent;
+	color: currentColor;
+	padding: 0 var(--tl-space-4);
+	box-shadow: none;
+}
+
+.obsidian-branching-chat-workflow .tlui-button:disabled {
+	color: var(--tl-color-text-3);
+}
+
+.obsidian-branching-chat-workflow .tlui-button__tool[aria-pressed='true'] {
+	color: var(--tl-color-selected-contrast);
+}
+
+.obsidian-branching-chat-workflow .tl-container {
+	--node-shadows: 0 2px 6px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+	--node-shadow-border:
+		0 0 0 1px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+	--node-shadow-highlight:
+		0 0 0 calc(1.2px / var(--tl-zoom)) var(--tl-color-selected), 0 2px 6px rgba(0, 0, 0, 0.08),
+		0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.obsidian-branching-chat-workflow .NodeShape {
+	border-radius: var(--tl-radius-3);
+	background: var(--tl-color-panel);
+	box-shadow: var(--node-shadow-border);
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+
+	.NodeShape-heading {
+		padding: 0 var(--tl-space-4);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--tl-space-4);
+		height: 40px;
+		margin-bottom: var(--tl-space-2);
+	}
+}
+
+.obsidian-branching-chat-workflow .Port {
+	position: absolute;
+	top: -6px;
+	left: -6px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: var(--tl-color-panel);
+	box-sizing: border-box;
+	z-index: 2;
+	box-shadow:
+		0 0 0 1px rgba(0, 0, 0, 0.04),
+		0 1px 3px rgba(0, 0, 0, 0.12);
+	flex: 0 0 auto;
+	transition: transform 0.05s ease-in-out;
+
+	[data-state='select.idle'] & {
+		pointer-events: all;
+	}
+
+	&.Port_hinting {
+		background: var(--tl-color-selected);
+	}
+
+	&.Port_eligible {
+		box-shadow:
+			0 0 0 calc(1px / var(--tl-zoom)) var(--tl-color-selected),
+			0 0 0 1px rgba(0, 0, 0, 0.04),
+			0 1px 3px rgba(0, 0, 0, 0.12);
+	}
+}
+
+.obsidian-branching-chat-workflow .ConnectionShape {
+	stroke-width: 2px;
+	stroke: var(--tl-color-text-3);
+	fill: none;
+}
+
+.obsidian-branching-chat-workflow .ConnectionShapeIndicator {
+	stroke-width: 2.1px;
+	stroke-linecap: round;
+}
+
+.obsidian-branching-chat-workflow .ConnectionCenterHandle {
+	.ConnectionCenterHandle-hover {
+		cursor: pointer;
+		stroke: none;
+		fill: none;
+
+		[data-state='select.idle'] & {
+			pointer-events: all;
+		}
+
+		&:hover {
+			fill: var(--tl-color-selection-fill);
+		}
+	}
+
+	.ConnectionCenterHandle-ring {
+		stroke: none;
+		fill: var(--tl-color-selected);
+	}
+
+	.ConnectionCenterHandle-icon {
+		stroke-width: 2px;
+		stroke: var(--tl-color-selected-contrast);
+	}
+}

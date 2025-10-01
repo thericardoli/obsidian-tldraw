@@ -1,8 +1,36 @@
-/*
+.obsidian-tldraw-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+.obsidian-tldraw-canvas {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  /* Allow children to shrink/grow properly in flex layouts inside Obsidian panes */
+  min-height: 0;
+}
 
-If your plugin does not need CSS, delete this file.
+.obsidian-branching-chat-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  /* Avoid flex children overflowing due to Obsidian's layout wrappers */
+  min-height: 0;
+}
 
-*/
+.obsidian-branching-chat-workflow {
+  position: relative;
+  flex: 1;
+  display: flex;
+  min-height: 0; /* allow tl-container to compute height correctly */
+}
+
+.obsidian-branching-chat-workflow .tl-container {
+  flex: 1;
+  min-height: 0;
+}

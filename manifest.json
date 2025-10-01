@@ -1,11 +1,11 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
-	"version": "1.0.0",
-	"minAppVersion": "0.15.0",
-	"description": "Demonstrates some of the capabilities of the Obsidian API.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
-	"isDesktopOnly": false
+  "id": "obsidian-tldraw",
+  "name": "TLDraw (v4) Minimal",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "在 Obsidian 中嵌入一个最小可用的 tldraw v4 画布视图。",
+  "author": "thericardoli",
+  "authorUrl": "https://github.com/thericardoli",
+  "fundingUrl": "",
+  "isDesktopOnly": false
 }
